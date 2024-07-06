@@ -10,16 +10,17 @@
   "engines": {
     "node": "^14.15 || ^16.13"
   },
+  "resolutions": { "graphql": "15.5.0", "**/graphql": "15.5.0" },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "dev": "keystone dev",
-    "postinstall": "keystone postinstall --fix",
     "build": "keystone build && keystone prisma migrate deploy ",
     "start": "keystone start"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.609.0",
     "@keystone-6/auth": "^1.0.0",
-    "@keystone-6/core": "^1.0.0",
+    "@keystone-6/core": "^2.1.0",
     "keystone": "^4.2.1"
   },
   "devDependencies": {

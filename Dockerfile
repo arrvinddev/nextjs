@@ -1,12 +1,12 @@
-FROM node:16-alpine
+FROM node:18-alpine
 WORKDIR /app
-# COPY package.json yarn.lock ./
-COPY package.json ./
+
+COPY . .
+
 RUN npm install 
 RUN npm install keystone
-RUN ["npx", "prisma", "generate"]
-COPY . .
+#RUN npm install "@prisma/client": "3.13.0"
+#RUN npm prisma generate
 EXPOSE 3000
-# EXPOSE 80
-RUN ["npm","run", "build"]
-CMD ["npm", "run", "start"]
+
+CMD ["npm", "run", "dev"]

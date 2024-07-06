@@ -1,0 +1,16 @@
+FROM node:20.15.0-bookworm
+#FROM debian
+WORKDIR /app
+# COPY package.json yarn.lock ./
+COPY package.json ./
+# make sure libssl.so.1.1 is available
+# RUN apt-get update && apt-get install -y libssl1.1 && apt clean && rm -rf /var/lib/apt/lists/*
+RUN npm install @prisma/client
+RUN npm install 
+RUN npm install keystone
+# RUN ["npx", "prisma", "generate"]
+COPY . .
+EXPOSE 3000
+# EXPOSE 80
+#RUN ["npm","run", "build"]
+CMD ["npm", "run", "dev"]
