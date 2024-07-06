@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+    sampleapp:
+      image: sampleapp:1.2.0
+      container_name: sampleapp
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - 80:3000
+      environment:
+        NODE_ENV: development
